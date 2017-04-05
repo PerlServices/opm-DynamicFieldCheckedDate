@@ -53,13 +53,11 @@ sub EditFieldValueGet {
 # ---
 # PS
 # ---
-    $Kernel::OM->Get('Kernel::System::Log')->Log( Priority => error => Message => $Kernel::OM->Get('Kernel::System::Main')->Dump( \%DynamicFieldValues ) );
     if ( !$DynamicFieldValues{ $Prefix . 'Year' } ) {
         %DynamicFieldValues = (
             $Prefix . 'Used'  => 1,
         );
     }
-    $Kernel::OM->Get('Kernel::System::Log')->Log( Priority => error => Message => $Kernel::OM->Get('Kernel::System::Main')->Dump( \%DynamicFieldValues ) );
 # ---
 
     # return if the field is empty (e.g. initial screen)
