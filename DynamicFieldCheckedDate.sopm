@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <otrs_package version="1.0">
-    <!-- GENERATED WITH OTRS::OPM::Maker::Command::sopm (1.36) -->
+    <!-- GENERATED WITH OTRS::OPM::Maker::Command::sopm (1.37) -->
     <Name>DynamicFieldCheckedDate</Name>
-    <Version>5.0.2</Version>
+    <Version>5.0.3</Version>
     <Framework>4.0.x</Framework>
     <Framework>5.0.x</Framework>
     <Vendor>Perl-Services.de</Vendor>
@@ -13,6 +13,7 @@
     <Filelist>
         <File Permission="644" Location="Kernel/Config/Files/DynamicFieldCheckedDate.xml" />
         <File Permission="644" Location="Kernel/System/DynamicField/Driver/CheckedDate.pm" />
+        <File Permission="644" Location="Kernel/System/DynamicField/Driver/CheckedDateTime.pm" />
         <File Permission="644" Location="doc/DynamicFieldCheckedDate.json" />
     </Filelist>
 </otrs_package>
