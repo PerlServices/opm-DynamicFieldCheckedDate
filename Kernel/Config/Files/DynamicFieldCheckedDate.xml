@@ -12,4 +12,16 @@
             </Hash>
         </Setting>
     </ConfigItem>
+    <ConfigItem Name="DynamicFields::Driver###CheckedDateTime" Required="0" Valid="1">
+        <Description Translatable="1">DynamicField backend registration.</Description>
+        <Group>DynamicFieldCheckedDate</Group>
+        <SubGroup>DynamicFields::Driver::Registration</SubGroup>
+        <Setting>
+            <Hash>
+                <Item Key="DisplayName" Translatable="1">CheckedDateTime</Item>
+                <Item Key="Module">Kernel::System::DynamicField::Driver::CheckedDateTime</Item>
+                <Item Key="ConfigDialog">AdminDynamicFieldDateTime</Item>
+            </Hash>
+        </Setting>
+    </ConfigItem>
 </otrs_config>
