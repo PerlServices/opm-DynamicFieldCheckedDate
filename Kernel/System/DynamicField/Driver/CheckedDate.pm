@@ -91,7 +91,12 @@ sub EditFieldValueGet {
         # time stamp
         for my $Type (qw(Month Day Hour Minute Second)) {
             $DynamicFieldValues{ $Prefix . $Type } = sprintf "%02d",
-                $DynamicFieldValues{ $Prefix . $Type };
+# ---
+# PS
+# ---
+#                $DynamicFieldValues{ $Prefix . $Type };
+                $DynamicFieldValues{ $Prefix . $Type } || 0;
+# ---
         }
         my $Year  = $DynamicFieldValues{ $Prefix . 'Year' }  || '0000';
         my $Month = $DynamicFieldValues{ $Prefix . 'Month' } || '00';
