@@ -66,9 +66,10 @@ sub EditFieldValueGet {
 # ---
 #    return if !$DynamicFieldValues{ $Prefix . 'Used' }
 #        && !$DynamicFieldValues{ $Prefix . 'Year' }
-#        && !$DynamicFieldValues{ $Prefix . 'Month' }
-#        && !$DynamicFieldValues{ $Prefix . 'Day' };
+     return if !$DynamicFieldValues{ $Prefix . 'Year' }
 # ---
+        && !$DynamicFieldValues{ $Prefix . 'Month' }
+        && !$DynamicFieldValues{ $Prefix . 'Day' };
 
     # check if return value structure is needed
     if ( defined $Param{ReturnValueStructure} && $Param{ReturnValueStructure} eq '1' ) {

@@ -61,11 +61,12 @@ sub EditFieldValueGet {
 #    # return if the field is empty (e.g. initial screen)
 #    return if !$DynamicFieldValues{ $Prefix . 'Used' }
 #        && !$DynamicFieldValues{ $Prefix . 'Year' }
-#        && !$DynamicFieldValues{ $Prefix . 'Month' }
-#        && !$DynamicFieldValues{ $Prefix . 'Day' }
-#        && !$DynamicFieldValues{ $Prefix . 'Hour' }
-#        && !$DynamicFieldValues{ $Prefix . 'Minute' };
+    return if !$DynamicFieldValues{ $Prefix . 'Year' }
 # ---
+        && !$DynamicFieldValues{ $Prefix . 'Month' }
+        && !$DynamicFieldValues{ $Prefix . 'Day' }
+        && !$DynamicFieldValues{ $Prefix . 'Hour' }
+        && !$DynamicFieldValues{ $Prefix . 'Minute' };
 
     # check if need and can transform dates
     # transform the dates early for ReturnValueStructure or ManualTimeStamp Bug#8452
