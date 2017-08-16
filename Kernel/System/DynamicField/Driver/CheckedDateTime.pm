@@ -52,17 +52,44 @@ sub EditFieldValueGet {
         $DynamicFieldValues{ $Prefix . $Type } //= 0;
     }
 
-    if ( !$DynamicFieldValues{ $Prefix . 'Year' } ) {
-        %DynamicFieldValues = (
-            $Prefix . 'Used'  => 1,
-        );
+    # pre-check the field when
+    #   - only an action is given
+    #   - no action at all
+    my $PreCheck = 0;
+
+    if ( !$DynamicFieldValues{ $Prefix . 'Used' }
+        && !$DynamicFieldValues{ $Prefix . 'Year' }
+        && !$DynamicFieldValues{ $Prefix . 'Month' }
+        && !$DynamicFieldValues{ $Prefix . 'Day' }
+        )
+    {
+        $PreCheck = 1;
     }
 
-#    # return if the field is empty (e.g. initial screen)
-#    return if !$DynamicFieldValues{ $Prefix . 'Used' }
-#        && !$DynamicFieldValues{ $Prefix . 'Year' }
-    return if !$DynamicFieldValues{ $Prefix . 'Year' }
+    if ( $PreCheck ) {
+        my $TimeObject = $Kernel::OM->Get('Kernel::System::Time');
+        my $Config     = $Param{DynamicFieldConfig};
+        my $DiffTime   = $Config->{DefaultValue};
+
+        $DynamicFieldValues{$Prefix . 'Used'} = 1;
+
+        my ($Sec, $Min, $Hour, $Day, $Month, $Year, $WeekDay) = $TimeObject->SystemTime2Date(
+            SystemTime => $TimeObject->SystemTime() + $DiffTime,
+        );
+
+        $DynamicFieldValues{ $Prefix . 'Day' }     ||= $Day;
+        $DynamicFieldValues{ $Prefix . 'Month' }   ||= $Month;
+        $DynamicFieldValues{ $Prefix . 'Year' }    ||= $Year;
+        $DynamicFieldValues{ $Prefix . 'Hour' }    ||= $Day;
+        $DynamicFieldValues{ $Prefix . 'Minute' }  ||= $Month;
+        $DynamicFieldValues{ $Prefix . 'Second' }  ||= $Year;
+    }
 # ---
+
+
+    # return if the field is empty (e.g. initial screen)
+    return if !$DynamicFieldValues{ $Prefix . 'Used' }
+        && !$DynamicFieldValues{ $Prefix . 'Year' }
         && !$DynamicFieldValues{ $Prefix . 'Month' }
         && !$DynamicFieldValues{ $Prefix . 'Day' }
         && !$DynamicFieldValues{ $Prefix . 'Hour' }
