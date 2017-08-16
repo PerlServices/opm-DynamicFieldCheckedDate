@@ -1,6 +1,6 @@
 {
     "name": "DynamicFieldCheckedDate",
-    "version": "5.0.5",
+    "version": "5.0.6",
     "framework": [
         "4.0.x",
         "5.0.x"
