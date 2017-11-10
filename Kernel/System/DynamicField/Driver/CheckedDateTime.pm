@@ -77,12 +77,15 @@ sub EditFieldValueGet {
             SystemTime => $TimeObject->SystemTime() + $DiffTime,
         );
 
-        $DynamicFieldValues{ $Prefix . 'Day' }     ||= $Day;
-        $DynamicFieldValues{ $Prefix . 'Month' }   ||= $Month;
-        $DynamicFieldValues{ $Prefix . 'Year' }    ||= $Year;
-        $DynamicFieldValues{ $Prefix . 'Hour' }    ||= $Day;
-        $DynamicFieldValues{ $Prefix . 'Minute' }  ||= $Month;
-        $DynamicFieldValues{ $Prefix . 'Second' }  ||= $Year;
+        my @ValueParts = split /[: -]/, ( $Param{Value} // '' );
+
+        $DynamicFieldValues{ $Prefix . 'Day' }     ||= $ValueParts[2] || $Day;
+        $DynamicFieldValues{ $Prefix . 'Month' }   ||= $ValueParts[1] || $Month;
+        $DynamicFieldValues{ $Prefix . 'Year' }    ||= $ValueParts[0] || $Year;
+
+        $DynamicFieldValues{ $Prefix . 'Hour' }    ||= $ValueParts[3] || $Day;
+        $DynamicFieldValues{ $Prefix . 'Minute' }  ||= $ValueParts[4] || $Month;
+        $DynamicFieldValues{ $Prefix . 'Second' }  ||= $ValueParts[5] || $Year;
     }
 # ---
 
