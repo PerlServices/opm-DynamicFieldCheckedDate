@@ -56,12 +56,21 @@ sub EditFieldValueGet {
     # pre-check the field when
     #   - only an action is given
     #   - no action at all
-    my $PreCheck = 0;
+    my $PreCheck  = 0;
+    my $Action    = '';
+    my $Subaction = '';
+
+    if ( $Param{ParamObject} ) {
+        $Action    = $Param{ParamObject}->GetParam( Param => 'Action' )    || '';
+        $Subaction = $Param{ParamObject}->GetParam( Param => 'Subaction' ) || '';
+    }
 
     if ( !$DynamicFieldValues{ $Prefix . 'Used' }
         && !$DynamicFieldValues{ $Prefix . 'Year' }
         && !$DynamicFieldValues{ $Prefix . 'Month' }
         && !$DynamicFieldValues{ $Prefix . 'Day' }
+        && $Action !~ m{TicketProcess\z}
+        && $Subaction ne 'DisplayActivityDialog'
         )
     {
         $PreCheck = 1;
