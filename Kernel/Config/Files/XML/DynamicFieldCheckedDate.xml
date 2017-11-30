@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<otrs_config version="1.0" init="Config">
-    <ConfigItem Name="DynamicFields::Driver###CheckedDate" Required="0" Valid="1">
+<otrs_config version="2.0" init="Config">
+    <Setting Name="DynamicFields::Driver###CheckedDate" Required="0" Valid="1">
         <Description Translatable="1">DynamicField backend registration.</Description>
-        <Group>DynamicFieldCheckedDate</Group>
-        <SubGroup>DynamicFields::Driver::Registration</SubGroup>
-        <Setting>
+        <Navigation>Core::DynamicFields::DriverRegistration</Navigation>
+        <Value>
             <Hash>
                 <Item Key="DisplayName" Translatable="1">CheckedDate</Item>
                 <Item Key="Module">Kernel::System::DynamicField::Driver::CheckedDate</Item>
                 <Item Key="ConfigDialog">AdminDynamicFieldDateTime</Item>
             </Hash>
-        </Setting>
-    </ConfigItem>
-    <ConfigItem Name="DynamicFields::Driver###CheckedDateTime" Required="0" Valid="1">
+        </Value>
+    </Setting>
+    <Setting Name="DynamicFields::Driver###CheckedDateTime" Required="0" Valid="1">
         <Description Translatable="1">DynamicField backend registration.</Description>
-        <Group>DynamicFieldCheckedDate</Group>
-        <SubGroup>DynamicFields::Driver::Registration</SubGroup>
-        <Setting>
+        <Navigation>Core::DynamicFields::DriverRegistration</Navigation>
+        <Value>
             <Hash>
                 <Item Key="DisplayName" Translatable="1">CheckedDateTime</Item>
                 <Item Key="Module">Kernel::System::DynamicField::Driver::CheckedDateTime</Item>
                 <Item Key="ConfigDialog">AdminDynamicFieldDateTime</Item>
             </Hash>
-        </Setting>
-    </ConfigItem>
+        </Value>
+    </Setting>
 </otrs_config>

@@ -2,16 +2,15 @@
 <otrs_package version="1.0">
     <!-- GENERATED WITH OTRS::OPM::Maker::Command::sopm (1.39) -->
     <Name>DynamicFieldCheckedDate</Name>
-    <Version>5.0.8</Version>
-    <Framework>4.0.x</Framework>
-    <Framework>5.0.x</Framework>
+    <Version>6.0.1</Version>
+    <Framework>6.0.x</Framework>
     <Vendor>Perl-Services.de</Vendor>
     <URL>http://www.perl-services.de</URL>
     <Description Lang="de">Ein Dynamisches Feld 'Datum' mit aktivierter Checkbox</Description>
     <Description Lang="en">A date dynamic field with checked checkbox</Description>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
     <Filelist>
-        <File Permission="644" Location="Kernel/Config/Files/DynamicFieldCheckedDate.xml" />
+        <File Permission="644" Location="Kernel/Config/Files/XML/DynamicFieldCheckedDate.xml" />
         <File Permission="644" Location="Kernel/System/DynamicField/Driver/CheckedDate.pm" />
         <File Permission="644" Location="Kernel/System/DynamicField/Driver/CheckedDateTime.pm" />
         <File Permission="644" Location="doc/DynamicFieldCheckedDate.json" />
