@@ -61,6 +61,9 @@ sub EditFieldValueGet {
         && !$DynamicFieldValues{ $Prefix . 'Year' }
         && !$DynamicFieldValues{ $Prefix . 'Month' }
         && !$DynamicFieldValues{ $Prefix . 'Day' }
+        && ( ( $Action !~ m{TicketProcess\z} && $Subaction ne 'DisplayActivityDialog')
+            || ( $Action eq 'AgentTicketProcess' && $Subaction eq 'DisplayActivityDialogAJAX' ) )
+
         )
     {
         $PreCheck = 1;
